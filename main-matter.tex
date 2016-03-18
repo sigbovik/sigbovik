@@ -1,0 +1,22 @@
+\documentclass[12pt]{article}
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+
+\newcommand{\setfootershift}[1]{\cfoot{\vspace{#1} \colorbox{white}{\ \thepage\ }}}
+% USAGE: \addpaper{title}{filename}{page number vertical shift}
+\newcommand{\addpaper}[3]{
+	\setfootershift{#3}
+	\includepdf[pages=-,pagecommand={\thispagestyle{fancy}},addtotoc={1,subsection,1,{#1},{#2}}]{#2}}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+\setfootershift{0cm}
+
+\begin{document}
+\tableofcontents
+\pagebreak
+\end{document}
