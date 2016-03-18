@@ -6,6 +6,19 @@
 \usepackage{pdfpages}
 
 \newcommand{\setfootershift}[1]{\lhead{} \rhead{} \cfoot{\vspace{#1} \colorbox{white}{\ \thepage\ }}}
+% USAGE: \addproceedings{intro}
+\newcommand{\addproceedings}[1]{
+	\renewcommand{\contentsname}{#1}
+	\tableofcontents
+	\pagebreak}
+% USAGE: \addtrack{number}{name}
+\newcommand{\addtrack}[2]{
+	\begin{center}
+	#1 \\
+	\section*{#2}
+	\addcontentsline{toc}{section}{#1: #2}
+	\end{center}
+	\secttoc}
 % USAGE: \addpaper{title}{author}{keywords}{filename}{page number vertical shift}
 \newcommand{\addpaper}[5]{
 	\setfootershift{#5}
@@ -26,6 +39,4 @@
 \setfootershift{0cm}
 
 \begin{document}
-\tableofcontents
-\pagebreak
 \end{document}
