@@ -17,6 +17,8 @@
 	\renewcommand\cftsubsecleader{\newline\cftdotfill{\cftdotsep}}
 	\renewcommand\cftsubsubsecleader{\newline\cftdotfill{\cftdotsep}}
 	\renewcommand\cftparaleader{\newline\cftdotfill{\cftdotsep}}
+	%\renewcommand\cftsecpagefont{\bfseries} % already this way but if you wanna change it
+	\renewcommand\cftsubsecpagefont{\itshape}
 
 	\renewcommand{\contentsname}{#1}
 	\tableofcontents
@@ -35,6 +37,7 @@
 	\renewcommand\cftsubsecleader{\cftdotfill{\cftnodots}}
 	\renewcommand\cftsubsubsecleader{\cftdotfill{\cftnodots}}
 	\renewcommand\cftparaleader{\cftdotfill{\cftnodots}}
+	% Pretty much copied from tocloft.sty, only the "#1" is removed.
 	\renewcommand{\cftsubsecfillnum}[1]{%
 		{\cftsubsecleader}\nobreak
 		\makebox[1.5em][\cftpnumalign]{\cftsubsecpagefont}\cftsubsecafterpnum\par}
