@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[twoside,12pt]{article}
 \usepackage{fancyhdr}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
@@ -13,6 +13,7 @@
 	\pagebreak}
 % USAGE: \addtrack{number}{name}
 \newcommand{\addtrack}[2]{
+	\cleardoublepage
 	\begin{center}
 	#1 \\
 	\section*{#2}
