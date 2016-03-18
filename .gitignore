@@ -1,4 +1,5 @@
 /*.pdf
+!/cover.pdf
 
 *.aux
 *.log
