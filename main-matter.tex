@@ -17,8 +17,8 @@
 	\renewcommand\cftsubsecleader{\newline\cftdotfill{\cftdotsep}}
 	\renewcommand\cftsubsubsecleader{\newline\cftdotfill{\cftdotsep}}
 	\renewcommand\cftparaleader{\newline\cftdotfill{\cftdotsep}}
-	%\renewcommand\cftsecpagefont{\bfseries} % already this way but if you wanna change it
-	\renewcommand\cftsubsecpagefont{\itshape}
+	\renewcommand\cftsecpagefont{\small\bfseries}
+	\renewcommand\cftsubsecpagefont{\small\itshape}
 
 	\renewcommand{\contentsname}{#1}
 	\tableofcontents
@@ -50,6 +50,7 @@
 	\secttoc}
 % USAGE: \addpaper{title}{author}{keywords}{filename}{page number vertical shift}
 \newcommand{\addpaper}[6]{
+	\cleardoublepage
 	\setfootershift{#5}
 	\rhead{#6}
 	\includepdf[pages=-,pagecommand={\thispagestyle{fancy}},addtotoc={1,subsection,1,{#1},{title:#4},1,subsubsection,4,{#2},{author:#4},1,paragraph,4,{Keywords: #3},{keywords:#4}},picturecommand={\rhead{}}]{./papers/#4}}
