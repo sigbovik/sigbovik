@@ -2,17 +2,26 @@
 \usepackage{fancyhdr}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
+\usepackage{minitoc}
 \usepackage{pdfpages}
 
-\newcommand{\setfootershift}[1]{\cfoot{\vspace{#1} \colorbox{white}{\ \thepage\ }}}
-% USAGE: \addpaper{title}{filename}{page number vertical shift}
-\newcommand{\addpaper}[3]{
-	\setfootershift{#3}
-	\includepdf[pages=-,pagecommand={\thispagestyle{fancy}},addtotoc={1,subsection,1,{#1},{#2}}]{#2}}
+\newcommand{\setfootershift}[1]{\lhead{} \rhead{} \cfoot{\vspace{#1} \colorbox{white}{\ \thepage\ }}}
+% USAGE: \addpaper{title}{author}{keywords}{filename}{page number vertical shift}
+\newcommand{\addpaper}[5]{
+	\setfootershift{#5}
+	\includepdf[pages=-,pagecommand={\thispagestyle{fancy}},addtotoc={1,subsection,1,{#1},{title:#4},1,subsubsection,4,{#2},{author:#4},1,paragraph,4,{Keywords: #3},{keywords:#4}}]{#4}}
 
 \renewcommand{\headrulewidth}{0pt}
+\renewcommand{\stctitle}{}
 \renewcommand{\thesection}{}
 \renewcommand{\thesubsection}{\arabic{subsection}}
+
+\setcounter{tocdepth}{2}
+
+\mtcsetdepth{secttoc}{4}
+\mtcsetpagenumbers{*}{off}
+\mtcsetrules{*}{off}
+\dosecttoc
 
 \setfootershift{0cm}
 
