@@ -45,8 +45,8 @@
 \setfootershift{0cm}
 
 \begin{document}
-\includepdf{titlepage}
-\includepdf{copyright-page}
-\includepdf[pages=-]{message-from-committee}
+\includepdf[pagecommand={\thispagestyle{plain}}]{titlepage}
+\includepdf[pagecommand={\thispagestyle{plain}}]{copyright-page}
+\includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{message-from-committee}
 \include{papers}
 \end{document}
