@@ -4,6 +4,7 @@
 \usepackage{hyperref}
 \usepackage{minitoc}
 \usepackage{pdfpages}
+\usepackage{secure-page-numbers}
 
 \newcommand{\setfootershift}[1]{\lhead{} \rhead{} \cfoot{\vspace{#1} \colorbox{white}{\ \thepage\ }}}
 % USAGE: \addproceedings{intro}
@@ -46,6 +47,7 @@
 \setfootershift{0cm}
 
 \begin{document}
+\pagenumbering{shahash}
 \includepdf[pagecommand={\thispagestyle{plain}}]{titlepage}
 \includepdf[pagecommand={\thispagestyle{plain}}]{copyright-page}
 \includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{message-from-committee}
