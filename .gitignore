@@ -1,8 +1,9 @@
+/*.pdf
+
 *.aux
 *.log
 *.maf
 *.mtc*
 *.out
-*.pdf
 *.stc*
 *.toc

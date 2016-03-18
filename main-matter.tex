@@ -22,7 +22,11 @@
 % USAGE: \addpaper{title}{author}{keywords}{filename}{page number vertical shift}
 \newcommand{\addpaper}[5]{
 	\setfootershift{#5}
-	\includepdf[pages=-,pagecommand={\thispagestyle{fancy}},addtotoc={1,subsection,1,{#1},{title:#4},1,subsubsection,4,{#2},{author:#4},1,paragraph,4,{Keywords: #3},{keywords:#4}}]{#4}}
+	\includepdf[pages=-,pagecommand={\thispagestyle{fancy}},addtotoc={1,subsection,1,{#1},{title:#4},1,subsubsection,4,{#2},{author:#4},1,paragraph,4,{Keywords: #3},{keywords:#4}}]{./papers/#4}}
+% USAGE: \addreview{filename}{page number vertical shift}
+\newcommand{\addreview}[2]{
+	\setfootershift{#2}
+	\includepdf[pages=-,pagecommand={\thispagestyle{fancy}}]{./reviews/#1}}
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\stctitle}{}
