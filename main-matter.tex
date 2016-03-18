@@ -32,6 +32,7 @@
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\stctitle}{}
+\renewcommand{\thepage}{\roman{page}}
 \renewcommand{\thesection}{}
 \renewcommand{\thesubsection}{\arabic{subsection}}
 
@@ -48,5 +49,9 @@
 \includepdf[pagecommand={\thispagestyle{plain}}]{titlepage}
 \includepdf[pagecommand={\thispagestyle{plain}}]{copyright-page}
 \includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{message-from-committee}
+
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+
 \include{papers}
 \end{document}
