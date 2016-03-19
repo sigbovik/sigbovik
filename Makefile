@@ -5,7 +5,7 @@ TEX := pdflatex
 proceedings.pdf: main-matter.pdf
 	$(CP) $< $@
 
-main-matter.pdf: titlepage.pdf copyright-page.pdf message-from-committee.pdf paper12eval.pdf paper10eval.pdf papers.tex
+main-matter.pdf: titlepage.pdf copyright-page.pdf message-from-committee.pdf paper12eval.pdf paper10eval.pdf paper22review.pdf papers.tex
 titlepage.pdf: TEX := xelatex
 
 .PHONY: clean
