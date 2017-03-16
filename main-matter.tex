@@ -5,19 +5,10 @@
 \usepackage{minitoc}
 \usepackage{pdfpages}
 \usepackage{secure-page-numbers}
-\usepackage{tocloft} % for special ToC formatting; see gross below
 
 \newcommand{\setfootershift}[1]{\lhead{} \rhead{} \cfoot{\vspace{#1} \colorbox{white}{\ \thepage\ }}}
 % USAGE: \addproceedings{intro}
 \newcommand{\addproceedings}[1]{
-	% Align cryptographic page numbers on their own line in main ToC.
-	% Pretty gross, huh? Looks nice tho.
-	\cftsetpnumwidth{37em}
-	\renewcommand\cftsecleader{\newline\cftdotfill{\cftdotsep}}
-	\renewcommand\cftsubsecleader{\newline\cftdotfill{\cftdotsep}}
-	\renewcommand\cftsubsubsecleader{\newline\cftdotfill{\cftdotsep}}
-	\renewcommand\cftparaleader{\newline\cftdotfill{\cftdotsep}}
-
 	\renewcommand{\contentsname}{#1}
 	\tableofcontents
 	\pagebreak}
@@ -29,21 +20,6 @@
 	\section*{#2}
 	\addcontentsline{toc}{section}{#1: #2}
 	\end{center}
-	% More grossness to remove page numbers in track ToCs
-	% OMG IT FINALLY WORKS SHIP IT
-	\renewcommand\cftsecleader{\cftdotfill{\cftnodots}}
-	\renewcommand\cftsubsecleader{\cftdotfill{\cftnodots}}
-	\renewcommand\cftsubsubsecleader{\cftdotfill{\cftnodots}}
-	\renewcommand\cftparaleader{\cftdotfill{\cftnodots}}
-	\renewcommand{\cftsubsecfillnum}[1]{%
-		{\cftsubsecleader}\nobreak
-		\makebox[1.5em][\cftpnumalign]{\cftsubsecpagefont}\cftsubsecafterpnum\par}
-	\renewcommand{\cftsubsubsecfillnum}[1]{%
-		{\cftsubsubsecleader}\nobreak
-		\makebox[1.5em][\cftpnumalign]{\cftsubsubsecpagefont}\cftsubsubsecafterpnum\par}
-	\renewcommand{\cftparafillnum}[1]{%
-		{\cftparaleader}\nobreak
-		\makebox[1.5em][\cftpnumalign]{\cftparapagefont}\cftparaafterpnum\par}
 	\secttoc}
 % USAGE: \addpaper{title}{author}{keywords}{filename}{page number vertical shift}
 \newcommand{\addpaper}[6]{
@@ -75,6 +51,9 @@
 \includepdf[pagecommand={\thispagestyle{plain}}]{titlepage}
 \includepdf[pagecommand={\thispagestyle{plain}}]{copyright-page}
 \includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{message-from-committee}
+
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
 
 \include{papers}
 \end{document}
