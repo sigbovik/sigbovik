@@ -2,10 +2,10 @@
 \ProvidesPackage{secure-page-numbers}
 	[2016/04/01 v0.05 secure page numbers]
 
-%\newwrite\salty
-%\immediate\openout\salty"salt.txt"
-%\immediate\write\salty{\jobname}
-%\immediate\closeout\salty
+\newwrite\salty
+\immediate\openout\salty"salt.txt"
+\immediate\write\salty{\jobname}
+\immediate\closeout\salty
 
 %\input|"./hash.pl"
 \def\shalookup#1{%
