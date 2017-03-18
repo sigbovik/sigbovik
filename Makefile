@@ -13,6 +13,9 @@ clean:
 	$(CLEAN) -fX
 
 %.pdf: %.tex
-	$(TEX) $<
-	$(TEX) $<
-	$(TEX) $<
+	cd $(shell dirname $<) && \
+		$(TEX) $(shell basename $<)
+	cd $(shell dirname $<) && \
+		$(TEX) $(shell basename $<)
+	cd $(shell dirname $<) && \
+		$(TEX) $(shell basename $<)
