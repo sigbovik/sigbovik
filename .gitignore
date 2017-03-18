@@ -1,4 +1,3 @@
-/*.pdf
 !/cover.pdf
 
 *.aux
@@ -6,6 +5,7 @@
 *.maf
 *.mtc*
 *.out
+*.pdf
 *.stc*
 *.toc
 *.txt
