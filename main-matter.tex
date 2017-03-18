@@ -23,11 +23,11 @@
 	\addcontentsline{toc}{section}{#1: #2}
 	\end{center}
 	\secttoc}
-% USAGE: \addpaper{title}{author}{keywords}{filename}{page number vertical shift}
+% USAGE: \addpaper{title}{author}{the field formerly known as keywords}{filename}{page number vertical shift}
 \newcommand{\addpaper}[6]{
 	\setfootershift{#5}
 	\rhead{#6}
-	\includepdf[pages=-,pagecommand={\thispagestyle{fancy}},addtotoc={1,subsection,1,{#1},{title:#4},1,subsubsection,4,{#2},{author:#4},1,paragraph,4,{Keywords: #3},{keywords:#4}},picturecommand={\rhead{}}]{./papers/#4}}
+	\includepdf[pages=-,pagecommand={\thispagestyle{fancy}},addtotoc={1,subsection,1,{#1},{title:#4},1,subsubsection,4,{#2},{author:#4},1,paragraph,4,{#3},{#4}},picturecommand={\rhead{}}]{./papers/#4}}
 % USAGE: \addreview{filename}{page number vertical shift}
 \newcommand{\addreview}[2]{
 	\setfootershift{#2}
