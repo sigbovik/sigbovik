@@ -1,5 +1,3 @@
-!/cover.pdf
-
 *.aux
 *.log
 *.maf
@@ -9,3 +7,5 @@
 *.stc*
 *.toc
 *.txt
+
+!/cover.pdf
