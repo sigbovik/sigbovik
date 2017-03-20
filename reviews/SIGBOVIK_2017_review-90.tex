@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{times}
+\setlength\parindent{0pt}
+\setlength\parskip{12pt}
+
+\begin{document}
+
+{\sffamily
+\begin{tabular}{ll}
+\multirow{3}{*}{\includegraphics[width=1in]{ach.png}}\\
+& \Large{\em CONFIDENTIAL COMMITTEE MATERIALS} \\
+&\\
+& \textbf{\Huge{SIGBOVIK 2017 Artifact Evaluation}} \\
+&\\
+& \LARGE{Paper 90: Automated Distributed Execution of} \\
+& \LARGE{LLVM code using SQL JIT Compilation} \\
+&\\
+\hline
+\end{tabular}}
+\vspace{2em}
+\thispagestyle{empty}
+
+{\large\bf
+\begin{tabular}{l}
+Anonymous first-year graduate student\\
+Rating: Weak Reject \\
+Confidence: Expert\\
+\end{tabular}}
+\vspace{1em}
+
+I interpreted the abstract as a Piet\footnote{http://www.dangermouse.net/esoteric/piet.html}
+program, downloaded the npiet interpreter\footnote{http://www.bertnase.de/npiet/}
+and tried to run the abstract. I got the following error:
+
+\begin{verbatim}
+error: codelsize 597 does not match width of 600 pixel
+\end{verbatim}
+
+After cropping the image to be a 597x597 square (you should do this yourself!),
+the program ran but produced the following trace:
+
+\begin{verbatim}
+info: verbose set to 1
+info: trace set to 1
+info: got 597 x 597 pixel with 256 cols
+info: codelsize guessed is 597 pixel
+trace: special case: we at a white codel - continuing
+
+info: program end
+\end{verbatim}
+
+I'm not sure how to interpret this result.
+
+\end{document}
