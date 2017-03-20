@@ -15,12 +15,16 @@
 	\tableofcontents
 	\pagebreak}
 % USAGE: \addtrack{number}{name}
-\newcommand{\addtrack}[2]{
+\newcommand{\addtrack}[3][]{
 	\cleardoublepage
 	\begin{center}
-	#1 \\
-	\section*{#2}
-	\addcontentsline{toc}{section}{#1: #2}
+	#1
+
+	#2
+	\section*{#3}
+	\addcontentsline{toc}{section}{#2: #3}
+
+	#1
 	\end{center}
 	\secttoc}
 % USAGE: \addpaper{title}{author}{the field formerly known as keywords}{filename}{page number vertical shift}
