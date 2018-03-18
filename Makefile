@@ -3,10 +3,12 @@ CP := cp
 GS := ghostscript
 TEX := pdflatex
 
+REVIEWS := $(subst .tex,.pdf,$(wildcard reviews/SIGBOVIK_2018_*))
+
 proceedings.pdf: main-matter.pdf
 	$(GS) -sOutputFile=$@ -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH $<
 
-main-matter.pdf: titlepage.pdf copyright-page.pdf message-from-committee.pdf papers.tex
+main-matter.pdf: titlepage.pdf copyright-page.pdf message-from-committee.pdf $(REVIEWS) papers.tex
 titlepage.pdf: TEX := xelatex
 
 .PHONY: clean
