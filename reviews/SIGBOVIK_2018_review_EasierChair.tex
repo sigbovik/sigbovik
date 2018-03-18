@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{times}
+\setlength\parindent{0pt}
+\setlength\parskip{12pt}
+
+\begin{document}
+
+{\sffamily
+\begin{tabular}{ll}
+\multirow{3}{*}{\includegraphics[width=1in]{ach.png}}\\
+& \Large{\em CONFIDENTIAL COMMITTEE MATERIALS} \\
+&\\
+& \textbf{\Huge{SIGBOVIK 2018 Paper Review}} \\
+&\\
+& \LARGE{Paper EasierChair: A Survey of} \\[0.25em]
+& \LARGE{Hardware Multithreading} \\
+&\\
+\hline
+\end{tabular}}
+\vspace{2em}
+\thispagestyle{empty}
+
+{\large\bf
+\begin{tabular}{l}
+Jim McCann (CMU Textiles Lab)\\
+Rating: 1.5 \\
+Confidence: High \\
+\end{tabular}}
+\vspace{1em}
+
+While hardware multithreading is something that is relevant to both textiles construction and computer science, and I am a strong advocate for more textiles-cs crossover work appearing in important venues like SIGBOVIK, I believe this paper needs to be extended.
+
+One could discuss, for example, a modern Jacquard loom, which uses a {\em warp}\footnote{Just like in GPU computation, come to think of it.} of parallel threads that can be independently selected per-instruction.
+%Such a masking primitive is very useful in constructing woven cloth, as it allows alternating warps to be ``picked'' by subsequent instructions.
+
+Or, instead, take the odd case of a mechanical knitting machine, which, rather than operating on many threads with a single needle, operates on a single thread with many needles.
+Indeed, given the way knitting machines are constructed, many dependent operations can be in flight on a single thread at the same time,
+with the machine handling tension forwarding and global order resolution through careful construction.
+
+Even in the consumer machine-sewing realm, it is common to see two-way multithreading:
+most machines use a ``top thread'' which passes through the needle and a ``bottom thread'' that comes from a smaller spool called a bobbin.
+More complicated machines called {\em sergers} use five- or even six-way multithreading in order to simultaneously stitch a seam and wrap thread around it to prevent fraying.
+Of course, one might argue that because all the threads are just being interleaved by the hardware at an instruction level, this is more akin to ``hyperthreading'', but it seems like a debate worth having.
+
+%Also, there several puns that I believe fall below the terrible standard required for publication.
+
+Also, you should definitely cite some of my papers.
+
+\end{document}
