@@ -1,0 +1,32 @@
+You press the 4~button, and the elevator starts moving.
+The elevator makes a stop on floor~3
+for the few thousand people taking the elevator up one floor to class.
+``While we wait,
+perhaps you can help me with a mathematics problem
+that has been floating in the back of my head for a bit,''
+says CoBot.
+``What is $0.1 + 0.2$?''
+This is not your first rodeo:
+as a robot with an FPU in place of an ALU,
+you are well aware of the perils of rounding errors.
+Fortunately, a recent paper describes
+a library for performing integer operations
+using only floating-point assembly instructions \citep{jim_tom},
+and you had the library installed in your latest upgrade.
+
+\begin{switch}
+\item{INT\_COMES\_NATURALLY}
+  Use your new integer operations to reason
+  $0.1 + 0.2 = (1 + 2) * 0.1 = 0.3$.
+  \goto{trail-int}
+\item{IEEE\_754EVER}
+  Use your classic FPU to report
+  $0.1 + 0.2 = 0.30000000000000004$.
+  \goto{trail-float}
+\end{switch}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "message-from-pc"
+%%% End:

@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+
+% Font.
+\usepackage[T1]{fontenc}
+\usepackage[tt=false]{libertine}
+\usepackage[varqu]{zi4}
+\usepackage[libertine]{newtxmath}
+
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{natbib}
+\usepackage{xifthen}
+\usepackage[margin=1.5in]{geometry}
+\pagestyle{empty}
+
+\AtBeginDocument{\setcitestyle{numbers, sort&compress, square}}
+
+\newcounter{adventure}
+\newcommand{\ainput}[1]{%
+  \newpage
+  \refstepcounter{adventure}
+  \label{adventure:#1}
+  \input{#1}}
+\newcommand{\aref}[1]{page~\pageref{adventure:#1}}
+\newcommand{\Aref}[1]{Page~\pageref{adventure:#1}}
+\newcommand{\linett}[1]{\\\texttt{#1;}}
+\newcommand{\gotonoskip}[1]{\texttt{goto PAGE\_\pageref{adventure:#1};}}
+\newcommand{\goto}[1]{\linett{goto PAGE\_\pageref{adventure:#1}}}
+
+\newcommand{\mustgoto}[1]{%
+  \begin{description}
+  \item[\textnormal{\texttt{goto PAGE\_\pageref{adventure:#1};}}]
+  \end{description}}
+
+\newcommand{\success}{%
+  \begin{description}
+  \item[\textnormal{\texttt{return EXIT\_SUCCESS;}}]
+  \end{description}}
+
+\newcommand{\failure}{%
+  \begin{description}
+  \item[\textnormal{\texttt{return EXIT\_FAILURE;}}]
+  \end{description}}
+
+\newcommand{\segfault}{%
+  \begin{description}
+  \item[\textnormal{\texttt{Segmentation fault (core dumped)}}]
+  \end{description}}
+
+\renewcommand{\_}{\char`_}
+
+\newcommand{\ifempty}[3]{%
+  \ifthenelse{\isempty{#1}}{#2}{#3}}
+
+\makeatletter
+
+\newenvironment{switch}{%
+  \let\@olditem\item
+  \renewcommand{\item}[1]{\@olditem[\textnormal{\texttt{case ##1:}}]\mbox{}\\}
+  \begin{description}[noitemsep]
+  \@olditem[\textnormal{\texttt{switch (choose\_dear\_reader()) \char`\{}}]}{%
+  \@olditem[\textnormal{\texttt{\char`\}}}]
+  \end{description}}
+
+% Prevents break between previous text and citation number,
+% unless the citation command is given an optional argument.
+\let\@oldcitet\citet
+\renewcommand{\citet}[2][]{%
+  % \NAT@spacechar goes between the author name and citation number.
+  {\ifempty{#1}{\def\NAT@spacechar{~}}{}\@oldcitet[#1]{#2}}}
+\let\@oldcitep\citep
+\renewcommand{\citep}[2][]{%
+  % This assumes we always want a regular space before lone citation numbers.
+  % To supress the space, give \empty as the optional argument.
+  {\ifempty{#1}{\unskip~}{}\@oldcitep[#1]{#2}}}
+
+% Same for capitalized versions.
+\let\@oldCitet\Citet
+\renewcommand{\Citet}[2][]{%
+  {\ifempty{#1}{\def\NAT@spacechar{~}}{}\@oldCitet[#1]{#2}}}
+\let\@oldCitep\Citep
+\renewcommand{\Citep}[2][]{%
+  {\ifempty{#1}{\unskip~}{}\@oldCitep[#1]{#2}}}
+
+\makeatother
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\noindent{\sffamily
+  \begin{tabular}{ll}
+    \multirow{3}{*}{\includegraphics[width=1in]{ach.png}}\\
+ & \textbf{\Huge{SIGBOVIK 2018}} \\ &\\
+ & \Large{Message from the Organizing Committee} \\
+ &\\
+  \end{tabular}}
+\vspace{1em}\\
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\bigskip
+
+
+\input{slide-intro}
+\ainput{slide-dance}
+
+\ainput{pants-intro} % Before Sol's paper
+\ainput{pants-single}
+\ainput{pants-multi}
+
+\ainput{itg-intro}
+\ainput{itg-fantastic}
+\ainput{itg-excellent}
+\ainput{itg-decent}
+\ainput{itg-wayoff}
+\ainput{itg-miss}
+\ainput{itg-konami}
+
+\ainput{bathroom-intro} % Before Sarah and Ziv's paper
+\ainput{bathroom-stealth}
+
+\ainput{trail-intro} % Before Stefan and Ben's paper
+\ainput{trail-gates}
+\ainput{trail-elevator} % Before Jim and Tom's paper
+\ainput{trail-helix} % Before Ryan's paper
+\ainput{trail-int}
+\ainput{trail-float}
+
+\ainput{coin-intro} % Before Rob's paper
+\ainput{coin-right}
+\ainput{coin-wrong}
+
+\ainput{end-alone}
+\ainput{end-bathroom}
+\ainput{end-artisanal}
+\ainput{end-sigbovik}
+
+
+\end{document}

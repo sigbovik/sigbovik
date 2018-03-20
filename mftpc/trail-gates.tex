@@ -1,0 +1,32 @@
+You take your time and carefully follow the floor-2-of-Gates-finding algorithm.
+As expected of Prestigious Research by Prestigious Researchers,
+the algorithm works perfectly, and you find yourself on floor 2
+of the Gates Hillman Complex.
+However, SIGBOVIK 2018 does not appear to be located on this floor.
+After a short search, you find the elevator,
+by which, remarkably, is a fellow robot!
+Perhaps they can lead you to SIGBOVIK 2018.
+
+The robot begins to speak:
+``\texttt{0100111011}---\emph{ahem}, excuse me.
+Hello, I am CoBot!
+Can you help me?
+Could you please press the up elevator button for me?''
+You oblige.
+Once in the elevator, CoBot requests,
+``Can you press the 4 button for me?''
+
+\begin{switch}
+\item{LEND\_A\_HELPING\_PRIMARY\_MANIPULATOR}
+  ``Of course, CoBot! Let's go to floor 4 together.''
+  \goto{trail-elevator}
+\item{TAKE\_THE\_SCENIC\_ROUTE}
+  ``How about I press the 3 button, then we take the helix to floor 4?''
+  \goto{trail-helix}
+\end{switch}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "message-from-pc"
+%%% End:
