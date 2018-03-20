@@ -8,13 +8,14 @@
 \AtBeginDocument{\setcitestyle{numbers, sort&compress, square}}
 
 \newcounter{adventure}
+\makeatletter
 \newcommand{\ainput}[1]{%
   \newpage
   \refstepcounter{adventure}
-  \label{adventure:#1}
-  %\pageref{adventure:#1}
-  %\gotonoskip{adventure:#1}
+  \filename@parse{#1}
+  \label{adventure:\filename@base}
   \input{#1}}
+\makeatother
 \newcommand{\linett}[1]{\\\texttt{#1;}}
 \newcommand{\gotonoskip}[1]{\texttt{goto PAGE\_\pageref{adventure:#1};}}
 \newcommand{\goto}[1]{\linett{goto PAGE\_\pageref{adventure:#1}}}
