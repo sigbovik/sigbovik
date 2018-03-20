@@ -1,9 +1,13 @@
+\usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{enumitem}
-\usepackage[margin=1.35in]{geometry}
+\usepackage[margin=1.5in]{geometry}
 \usepackage{graphicx}
 \usepackage{natbib}
+\usepackage{tabto}
+\usepackage{tabularx}
 \usepackage{xifthen}
+\frenchspacing
 
 \AtBeginDocument{\setcitestyle{numbers, sort&compress, square}}
 
@@ -14,6 +18,18 @@
   \refstepcounter{adventure}
   \filename@parse{#1}
   \label{adventure:\filename@base}
+  \begin{center}
+    \sffamily
+    \begin{tabularx}{\textwidth}{lX}
+      \multirow{3}{*}{\includegraphics[width=0.75in]{ach.png}}\\
+      & \textbf{\Large{SIGBOVIK 2018}} \\
+      \addlinespace[0.5em]
+      & \large{(Continued) Message from the Organizing Committee} \\
+      \addlinespace[0.8em]
+      \midrule
+    \end{tabularx}
+  \end{center}
+  \medskip
   \input{#1}}
 \makeatother
 \newcommand{\linett}[1]{\\\texttt{#1;}}
@@ -49,7 +65,8 @@
 
 \newenvironment{switch}{%
   \let\@olditem\item
-  \renewcommand{\item}[1]{\@olditem[\textnormal{\texttt{case ##1:}}]\mbox{}\\}
+  \renewcommand{\item}[2][\mbox{}\\]{%
+    \@olditem[\textnormal{\texttt{case ##2:}}]##1}
   \begin{description}[noitemsep]
   \@olditem[\textnormal{\texttt{switch (choose\_dear\_reader()) \char`\{}}]}{%
   \@olditem[\textnormal{\texttt{\char`\}}}]
