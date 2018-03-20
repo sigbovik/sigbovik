@@ -1,3 +1,4 @@
+BIBTEX := bibtex
 CLEAN := git clean
 CP := cp
 GS := ghostscript
@@ -18,6 +19,7 @@ clean:
 %.pdf: %.tex
 	cd $(shell dirname $<) && \
 		$(TEX) $(shell basename $<)
+	grep '^\\citation' $(subst .tex,.aux,$(filter %.tex,$^)) >/dev/null && $(BIBTEX) $* || true
 	cd $(shell dirname $<) && \
 		$(TEX) $(shell basename $<)
 	cd $(shell dirname $<) && \
