@@ -1,6 +1,5 @@
 \documentclass[twoside,12pt]{article}
 \usepackage{fancyhdr}
-\usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \usepackage{minitoc}
 \usepackage{pdfpages}
@@ -52,6 +51,10 @@
 \dosecttoc
 
 \setfootershift{0cm}
+
+\IfFileExists{plugin.tex}{
+	\input{plugin}
+}{}
 
 \begin{document}
 \includepdf[pagecommand={\thispagestyle{fancy}}]{titlepage}
