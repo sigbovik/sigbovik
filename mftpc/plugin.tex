@@ -1,0 +1,65 @@
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage[margin=1.35in]{geometry}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{xifthen}
+
+\AtBeginDocument{\setcitestyle{numbers, sort&compress, square}}
+
+\newcounter{adventure}
+\newcommand{\ainput}[1]{%
+  \newpage
+  \refstepcounter{adventure}
+  \label{adventure:#1}
+  %\pageref{adventure:#1}
+  %\gotonoskip{adventure:#1}
+  \input{#1}}
+\newcommand{\linett}[1]{\\\texttt{#1;}}
+\newcommand{\gotonoskip}[1]{\texttt{goto PAGE\_\pageref{adventure:#1};}}
+\newcommand{\goto}[1]{\linett{goto PAGE\_\pageref{adventure:#1}}}
+
+\newcommand{\mustgoto}[1]{%
+  \begin{description}
+  \item[\textnormal{\texttt{goto PAGE\_\pageref{adventure:#1};}}]
+  \end{description}}
+
+\newcommand{\success}{%
+  \begin{description}
+  \item[\textnormal{\texttt{return EXIT\_SUCCESS;}}]
+  \end{description}}
+
+\newcommand{\failure}{%
+  \begin{description}
+  \item[\textnormal{\texttt{return EXIT\_FAILURE;}}]
+  \end{description}}
+
+\newcommand{\segfault}{%
+  \begin{description}
+  \item[\textnormal{\texttt{Segmentation fault (core dumped)}}]
+  \end{description}}
+
+\renewcommand{\_}{\char`_}
+
+\newcommand{\ifempty}[3]{%
+  \ifthenelse{\isempty{#1}}{#2}{#3}}
+
+\makeatletter
+
+\newenvironment{switch}{%
+  \let\@olditem\item
+  \renewcommand{\item}[1]{\@olditem[\textnormal{\texttt{case ##1:}}]\mbox{}\\}
+  \begin{description}[noitemsep]
+  \@olditem[\textnormal{\texttt{switch (choose\_dear\_reader()) \char`\{}}]}{%
+  \@olditem[\textnormal{\texttt{\char`\}}}]
+  \end{description}}
+
+% Prevents break between previous text and citation number,
+% unless the citation command is given an optional argument.
+\let\@oldcitep\citep
+\renewcommand{\citep}[2][]{%
+  % This assumes we always want a regular space before lone citation numbers.
+  % To supress the space, give \empty as the optional argument.
+  {\ifempty{#1}{\unskip~}{}\@oldcitep[#1]{#2}}}
+
+\makeatother
