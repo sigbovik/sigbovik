@@ -56,7 +56,9 @@
 \begin{document}
 \includepdf[pagecommand={\thispagestyle{fancy}}]{titlepage}
 \includepdf[pagecommand={\thispagestyle{fancy}}]{copyright-page}
-\includepdf[pages=-,pagecommand={\thispagestyle{fancy}}]{message-from-committee}
+\IfFileExists{message-from-committee.pdf}{
+	\includepdf[pages=-,pagecommand={\thispagestyle{fancy}}]{message-from-committee}
+}{}
 
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
