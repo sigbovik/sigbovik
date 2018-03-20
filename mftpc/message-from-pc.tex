@@ -1,13 +1,17 @@
 \documentclass[12pt]{article}
 
-% Font.
+\usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{multirow}
+\usepackage[margin=1.5in]{geometry}
 \usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage{natbib}
+\usepackage{tabto}
+\usepackage{tabularx}
 \usepackage{xifthen}
 \pagestyle{empty}
+\frenchspacing
 
 \AtBeginDocument{\setcitestyle{numbers, sort&compress, square}}
 
@@ -16,6 +20,18 @@
   \newpage
   \refstepcounter{adventure}
   \label{adventure:#1}
+  \begin{center}
+    \sffamily
+    \begin{tabularx}{\textwidth}{lX}
+      \multirow{3}{*}{\includegraphics[width=0.75in]{ach.png}}\\
+      & \textbf{\Large{SIGBOVIK 2018}} \\
+      \addlinespace[0.5em]
+      & \large{(Continued) Message from the Organizing Committee} \\
+      \addlinespace[0.8em]
+      \midrule
+    \end{tabularx}
+  \end{center}
+  \medskip
   \input{#1}}
 \newcommand{\linett}[1]{\\\texttt{#1;}}
 \newcommand{\gotonoskip}[1]{\texttt{goto PAGE\_\pageref{adventure:#1};}}
@@ -50,7 +66,8 @@
 
 \newenvironment{switch}{%
   \let\@olditem\item
-  \renewcommand{\item}[1]{\@olditem[\textnormal{\texttt{case ##1:}}]\mbox{}\\}
+  \renewcommand{\item}[2][\mbox{}\\]{%
+    \@olditem[\textnormal{\texttt{case ##2:}}]##1}
   \begin{description}[noitemsep]
   \@olditem[\textnormal{\texttt{switch (choose\_dear\_reader()) \char`\{}}]}{%
   \@olditem[\textnormal{\texttt{\char`\}}}]
@@ -70,16 +87,19 @@
 \begin{document}
 \thispagestyle{empty}
 
-\noindent{\sffamily
-  \begin{tabular}{ll}
-    \multirow{3}{*}{\includegraphics[width=1in]{ach.png}}\\
- & \textbf{\Huge{SIGBOVIK 2018}} \\ &\\
- & \Large{Message from the Organizing Committee} \\
- &\\
-  \end{tabular}}
-\vspace{1em}\\
-\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
-\bigskip
+\begin{center}
+  \sffamily
+  \begin{tabularx}{\textwidth}{lX}
+    \multirow{3}{*}{\includegraphics[width=1in]{ach.png}} \\
+    \addlinespace[0.3em]
+    & \textbf{\Huge{SIGBOVIK 2018}} \\
+    \addlinespace[0.75em]
+    & \Large{Message from the Organizing Committee} \\
+    \addlinespace[1.55em]
+    \midrule
+  \end{tabularx}
+\end{center}
+\medskip
 
 
 \input{slide-intro}
