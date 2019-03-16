@@ -4,7 +4,7 @@ CP := cp
 GS := ghostscript
 TEX := pdflatex
 
-REVIEWS := $(subst .tex,.pdf,$(wildcard reviews/SIGBOVIK_2018_*))
+REVIEWS := $(subst .tex,.pdf,$(wildcard reviews/SIGBOVIK_2019_*))
 
 proceedings.pdf: main-matter.pdf
 	$(GS) -sOutputFile=$@ -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH $<
