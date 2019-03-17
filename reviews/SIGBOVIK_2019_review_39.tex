@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{times}
+\usepackage{marvosym}
+\usepackage{tikz}
+\usepackage{pifont}
+
+\newcommand{\shrug}[1][]{%
+  \begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
+    \def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
+    \draw \arm;
+    \draw[xscale=-1] \arm;
+    \def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
+    \draw \headpart;
+    \draw[xscale=-1] \headpart;
+    \def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
+    \draw[shift={(-0.3,0.8)}] \eye;
+    \draw[shift={(0,0.85)}] \eye;
+    % draw mouth
+    \draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95);
+    \end{tikzpicture}}
+
+\setlength\parindent{0pt}
+\setlength\parskip{12pt}
+
+\begin{document}
+
+{\sffamily
+\begin{tabular}{ll}
+\multirow{4}{*}{\includegraphics[width=1in]{ach.png}}\\
+& \Large{\em CONFIDENTIAL COMMITTEE MATERIALS} \\
+&\\
+& \textbf{\Huge{SIGBOVIK 2019 Paper Review}} \\
+&\\
+& \LARGE{Paper 39: \texttt{emojizip}: A text compression} \\[0.25em]
+& \LARGE{system based on pictogram-kiloword} \\
+& \LARGE{equivalence}\\
+&\\
+\hline
+\end{tabular}}
+\vspace{2em}
+\thispagestyle{empty}
+
+{\large\bf
+  \begin{tabular}{l}
+    \Smiley\\
+    \Industry\\
+Rating: \Heart\\
+Confidence: \shrug{}\\
+\end{tabular}}
+\vspace{1em}
+
+\ding{45} \ding{41} \ding{51}
+
+
+\end{document}
