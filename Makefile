@@ -4,12 +4,13 @@ CP := cp
 GS := ghostscript
 TEX := pdflatex
 
+PCMESG  := $(subst .tex,.pdf,$(wildcard message-from-committee.tex))
 REVIEWS := $(subst .tex,.pdf,$(wildcard reviews/SIGBOVIK_2019_*))
 
 proceedings.pdf: main-matter.pdf
 	$(GS) -sOutputFile=$@ -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH $<
 
-main-matter.pdf: titlepage.pdf copyright-page.pdf $(REVIEWS) papers.tex
+main-matter.pdf: titlepage.pdf copyright-page.pdf $(PCMESG) $(REVIEWS) papers.tex
 titlepage.pdf: TEX := xelatex
 
 .PHONY: clean
