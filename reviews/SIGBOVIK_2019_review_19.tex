@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{times}
+\setlength\parindent{0pt}
+\setlength\parskip{12pt}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\begin{document}
+
+{\sffamily
+\begin{tabular}{ll}
+\multirow{3}{*}{\includegraphics[width=1in]{ach.png}}\\
+& \Large{\em CONFIDENTIAL COMMITTEE MATERIALS} \\
+&\\
+& \textbf{\Huge{SIGBOVIK 2019 Paper Review}} \\
+&\\
+& \LARGE{Paper 19: Applications of} \\[0.25em]
+& \LARGE{Standard ML at Google} \\
+&\\
+\hline
+\end{tabular}}
+\vspace{2em}
+\pagestyle{empty}
+
+{\large\bf
+\begin{tabular}{l}
+  Stefan Muller\\
+  Former 15-150 Instructor\\
+  Expensive Building, Forbes Avenue\\
+Rating: 42.0 \\
+Confidence: \texttt{val it = 42.0 : real}\\
+\end{tabular}}
+\vspace{1em}
+
+This paper gives an excellent summary of the many benefits of Standard ML,
+a strongly-typed, usable, production-quality language, as well as a
+number\footnote{zero is a number} of applications of it in practice in
+Google, a reasonably extensive search engine codebase developed by researchers
+at Stanford.
+
+I agree with the author that the publication of this study could be a great
+learning experience to CS students at Carnegie Mellon, as well as a number
+of other universities that make extensive use of Standard
+ML\footnote{zero is a number}.
+
+As future work, the author may wish to consider even further expanding the
+use of Standard ML at Google. Its strong abstraction properties, for example,
+could be useful to help Google avoid the privacy issues that have plagued
+other tech companies in recent days. Consider the code on the following page.
+
+\lstset{  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  numbers=left
+}
+
+
+\clearpage
+\begin{lstlisting}[language=ML]
+signature User =
+sig
+    val name           : string
+    val age            : int
+    val interests      : string list
+    val docs           : string list
+    val sheets         : string Array.array Array.array list
+    val search_history : string list
+    val emails         : string list
+    val contacts       : (string * int) list
+end
+
+signature AdUser =
+sig
+    (* All the info I want Google to give to advertisers *)
+end
+
+structure Me :> AdUser =
+struct
+...
+end
+
+
+functor Ads (U : AdUser) =
+struct
+...
+end
+\end{lstlisting}
+
+\textit{Conflict of interest disclosure}: The reviewer, while generally
+distrustful of Big Tech, uses Google products when necessary (read: always).
+
+\end{document}
