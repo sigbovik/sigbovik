@@ -7,6 +7,16 @@
 \setlength\parindent{0pt}
 \setlength\parskip{12pt}
 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+
+\newcommand{\auth}{\text{auth}}
+\newcommand{\paperby}{\text{paperBy}}
+\newcommand{\reviewofby}{\text{reviewOfBy}}
+\newcommand{\bool}{\text{bool}}
+\newcommand{\rev}{\text{rev}}
+
 \begin{document}
 
 {\sffamily
@@ -20,27 +30,41 @@
 \vspace{2em}
 \thispagestyle{empty}
 
-Greetings friends, colleagues, and complete strangers. It is with great pride that we welcome you to the 0xDth annual Special Interest Group on Harry Q. Bovik, held in celebration of Harry Q Bovik's $10^{somenumberbiggerthan2}$th birthday. Normally this is where we, the ``committee'', would wax poetic about  features added\footnote{Despite my noble intention to dispatch with the labored, formulaic frontmatter of yestersyear, I was thwarted by a proceedings chair who insisted that I add an explanation of the unwittily-named ``unwitting participation ribbon'' (\,\raisebox{-0.25\height}{\includegraphics[height=3ex]{participation}}), an unwelcome brand we've affixed to each paper determined after careful scrutiny to have included a genuine artifact, thereby furthering the admirable causes of open science and fruitful procrastination.}, records broken, and facts fun. However, this year, we have decided to take the highly efficient and not at all lazy route of delegating the task of writing this message to committee members of the past. A sort of temporal passing of the buck, one might say. Thus I present to you, in reverse chronological order, some messages.
+For generality’s sake, we have templatized the message of the organizing committee. The actual message may be produced by running the TeX command at the end.
 
-\begin{itemize}
-\item ``Best conference I have chaired so far, also the question mark is implicit at the end of all the survey questionspunctuationisfortheweak'' \emph{--- General Chair 2019}
+\begin{verbatim}
+\newcommand{\Message2020}[3]{
+% TODO: generalize ordinal indicators
+\end{verbatim}
+Friends, family, colleagues, acquaintances for whom we have not yet overcome the activation energy to engage with regularly, and strangers doomed to the same fate: The Association of Computational Heresy welcomes you to the \#1th annual meeting of the Special Interest Group on Harry \#2 Bovik in celebration of Bovik’s \#3\textsuperscript{th} birthday. In lieu of data about the submission and review process this year, we encourage you to ponder the perils of empiricism as well as our innovations in the publishing process: most notably, triple-blind peer review. In plain English, we have the following definition.\\
 
-\item ``much as even mentioned in the paper; well, that will teach me to forget punctuation at the end of my survey questions, won't it?'' \emph{--- General Chair 2018}
+\textbf{triple-blind peer review} /$'$tr\char"026Apl-bla\char"026And pi\char"02D0r rɪ$'$vju\char"02D0/ \emph{noun}
+\begin{enumerate}
+\item Scholarly peer review that minimizes bias by concealing not only the identities of the authors and reviewers from each other, but also by concealing the papers from the reviewers. Compare: single- and double-blind peer review.
+\end{enumerate}
 
-\item ``SIGBOVIK, for those with a special interest in groups-BOVIK. Like many special interests, I consider it clinically significant.'' \emph{--- General Chair 2017}
+However, let us undertake some performative formalization. Given a set of names of authors $(\auth)$ and reviewers ($\rev$), we consider the role of author and reviewer as, under the Curry-Howard correspondence, proofs of the following higher-order linear logic propositions/processes conforming to the following protocols.
 
-\item ``I wish all conferences were as \sout{easy to get into} prestigious as SIGBOVIK'' \emph{--- General Chair 2014}
+\begin{align*}
+&\vdash P::(c:\exists_{a:\auth,p:\paperby(a)}\forall_{r:\rev}\reviewofby(p, r)\multimap\bool)\\
+&\vdash Q::(d:\forall_{a:\auth,p:\paperby(a)}\exists_{r:\rev}\reviewofby(p, r))
+\end{align*}
 
-\item `` `i'm sorry i derelicted my duties to promote sigbovik on twitter this year but i see you have 30ish submissions already even without me so HRMPH WHO NEEDS ME um i mean well done!' '' \emph{--- General Chair 2012 (note: 40ish actually, end note)}
+Under duality, it is clear that communication between $P$ and $Q$ is sound. Then, each level of blindness (single to triple) is achieved by successively abstracting the definition of $\rev$ for $P$ then $\auth$ and $\paperby$ for $Q$ respectively; we refer to Mark Lillibridge's work on translucent sums to achieve this. Higher-order notions of blind review requires a stronger metatheory like a linear temporal-linear logical framework (that’s TWO linears!); we encourage future work to investigate this idea.
 
-\item ``SIGBOVIK is exactly what I had in mind. ---Edgar Allen Poe'' \emph{--- General Chair 2008}
+Now that the general chair has redeemed himself for not submitting a paper this year, we would like to thank our authors and reviewers for their phenomenal work and for adjusting to the new review process as well as the continuous effort of volunteers who have made this year’s conference possible, which include but are not limited to: Chris Yu for the cover art,\ldots. Lastly, we would like to thank Sol Boucher for assembling the proceedings as well as Jenny Lin and Siva Somayyajula for never working in various capacities (see figure \ref{fig:never}).
 
-\item ``I like to bovik bovik'' \emph{--- General Chair 2007}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{never.png}
+\caption{never say NEVER}
+\label{fig:never}
+\end{figure}
 
-\end{itemize}
-
-And with that, the papers.
-
+\begin{verbatim}
+}
+\Message2020{14}{Q.}{n>>1}
+\end{verbatim}
 
 \thispagestyle{empty}
 
