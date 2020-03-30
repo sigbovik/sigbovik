@@ -156,7 +156,12 @@
 	{SIGBOVIK_2020_paper_4}
 	{0cm}
 	{}
+\newcounter{egap}
+\setcounter{egap}{\thepage}
+\setcounter{page}{1}
 \addreview{SIGBOVIK_2020_review_6}{0cm}
+\setcounter{page}{\theegap}
+\stepcounter{page}
 \addpaper
 	{Putting the ceremony in ``authentication ceremony''}
 	{Camille Cobb, Sruti Bhagavatula}
