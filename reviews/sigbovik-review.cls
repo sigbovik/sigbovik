@@ -49,7 +49,7 @@
   \vspace{3em}
   {\large\bf%
   \begin{tabular}{l}
-    \@author\\
+    Reviewer: \@author\\
     Rating: \@rating\\
     Confidence: \@confidence\\
   \end{tabular}}
