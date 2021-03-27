@@ -13,6 +13,9 @@ proceedings.pdf: main-matter.pdf
 main-matter.pdf: titlepage.pdf copyright-page.pdf $(PCMESG) $(REVIEWS) papers.tex
 titlepage.pdf: TEX := xelatex
 
+# i18n
+reviews/SIGBOVIK_2021_review_5.pdf: private TEX := xelatex
+
 .PHONY: clean
 clean:
 	$(CLEAN) -fX
