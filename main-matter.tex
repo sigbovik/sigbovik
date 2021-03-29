@@ -28,10 +28,13 @@
 	\end{center}
 	\secttoc}
 % USAGE: \addpaper{title}{author}{the field formerly known as keywords}{filename}{page number vertical shift}
-\newcommand{\addpaper}[7][fancy]{
+\newcommand{\addpaper}[1][fancy]{%
+  \def\CurrentPaperPageStyle{#1}%
+  \addpaperrelay}
+\newcommand{\addpaperrelay}[7][]{
 	\cfoot{\vspace{-#6}\quad\colorbox{white}{\parbox[t][#6][b]{3em}{\center{\thepage}}}}
 	\rhead{#7}
-	\includepdf[pages=-,pagecommand={\thispagestyle{#1}},addtotoc={1,subsection,1,{#2},{title:#5},1,subsubsection,4,{#3},{author:#5},1,paragraph,4,{#4},{#5}},picturecommand={\rhead{}}]{./papers/#5}}
+	\includepdf[pages=-,pagecommand={\thispagestyle{\CurrentPaperPageStyle}},addtotoc={1,subsection,1,{#2},{title:#5},1,subsubsection,4,{#3},{author:#5},1,paragraph,4,{#4},{#5}},picturecommand={\rhead{}},picturecommand*={\hspace{5.5in}\vspace*{-10.5in} {#1}}]{./papers/#5}}
 % USAGE: \addreview{filename}{page number vertical shift}
 \newcommand{\addreview}[2]{
 	\setfootershift{#2}
@@ -42,6 +45,8 @@
 \renewcommand{\thepage}{\roman{page}}
 \renewcommand{\thesection}{}
 \renewcommand{\thesubsection}{\arabic{subsection}}
+
+\newcommand{\badge}[1]{\includegraphics[width=1in]{badges/badge_#1}}
 
 \setcounter{tocdepth}{2}
 
