@@ -1,0 +1,5 @@
+README
+======
+
+If you have a skeletal LaTeX installation, you might need the following packaages:
+multirow preprint collection-fontsrecommended todonotes wrapfig hyphenat lastpage minitoc stmaryrd stctitle
