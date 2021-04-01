@@ -1,8 +1,14 @@
 BIBTEX := bibtex
 CLEAN := git clean
 CP := cp
-GS := ghostscript
 TEX := pdflatex
+ifeq ($(OS), Linux)
+	GS := ghostscript
+else
+	GS := gs
+endif
+
+
 
 PCMESG  := $(subst .tex,.pdf,$(wildcard message-from-committee.tex))
 REVIEWS := $(subst .tex,.pdf,$(wildcard reviews/SIGBOVIK_2021_*))
@@ -14,7 +20,7 @@ main-matter.pdf: titlepage.pdf copyright-page.pdf $(PCMESG) $(REVIEWS) papers.te
 titlepage.pdf: TEX := xelatex
 
 # i18n
-reviews/SIGBOVIK_2021_review_5.pdf: private TEX := xelatex
+#reviews/SIGBOVIK_2021_review_5.pdf: private TEX := xelatex
 
 .PHONY: clean
 clean:
