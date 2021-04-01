@@ -1,14 +1,8 @@
 BIBTEX := bibtex
 CLEAN := git clean
 CP := cp
+GS := gs
 TEX := pdflatex
-ifeq ($(OS), Linux)
-	GS := ghostscript
-else
-	GS := gs
-endif
-
-
 
 PCMESG  := $(subst .tex,.pdf,$(wildcard message-from-committee.tex))
 REVIEWS := $(subst .tex,.pdf,$(wildcard reviews/SIGBOVIK_2021_*))
