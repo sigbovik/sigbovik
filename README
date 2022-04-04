@@ -5,4 +5,7 @@ If you have a skeletal LaTeX installation, you might need the following packaage
 multirow preprint collection-fontsrecommended todonotes wrapfig hyphenat lastpage minitoc stmaryrd stctitle
 
 1. Download papers from easychair and move them to the papers folder
+2. Add papers to the paper.tex file using the \addpaper command (the final parameter for the command is for adding artifact labels, see 2021 for example). keywords can be found on easychair (TODO: easier way to export information as a csv maybe? iirc that was a paid feature…). NOTE: some authors put a different name under the actual paper than they use on easychair. Should probably double check that it's consistent with the paper name, in case they meant to do some comedic pseudonym
+3. Update titlepage.tex to have to have right dates/years/birthdays
+4. Change copyright.tex to have right year
 
