@@ -3,3 +3,6 @@ README
 
 If you have a skeletal LaTeX installation, you might need the following packaages:
 multirow preprint collection-fontsrecommended todonotes wrapfig hyphenat lastpage minitoc stmaryrd stctitle
+
+1. Download papers from easychair and move them to the papers folder
+
