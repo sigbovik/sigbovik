@@ -9,4 +9,4 @@ multirow preprint collection-fontsrecommended todonotes wrapfig hyphenat lastpag
 2a. Some papers don't read the instructions and have page numbers even though we told them not to. You can scrub them out (we used to use preview but it stopped working) or you can brand them with the pagenumbers badge.
 3. Update titlepage.tex to have to have right dates/years/birthdays
 4. Change copyright.tex to have right year
-
+5. Run make. You may have to run it a few times to iron out weirdness.
