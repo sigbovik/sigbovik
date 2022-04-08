@@ -8,14 +8,14 @@
 \usepackage{textcomp}
 \usepackage[normalem]{ulem}
 
-%2022 specific hack for paper 8888, in case people put unicode chars in their paper
+%2022 specific hack for paper 8888, in case people put unicode chars in their paper.
 \usepackage{common-unicode}
 \newcommand{\setfootershift}[1]{\lhead{} \rhead{} \cfoot{\vspace{#1} \colorbox{white}{\ \thepage\ }}}
 % USAGE: \addproceedings{intro}
 \newcommand{\addproceedings}[1]{
 	\renewcommand{\contentsname}{#1}
 	\tableofcontents
-	\newbreak}
+	\clearpage}
 % USAGE: \addtrack{number}{name}
 \newcommand{\addtrack}[3][]{
 	\cleardoublepage
