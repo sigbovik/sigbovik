@@ -5,7 +5,7 @@ GS := gs
 TEX := pdflatex
 
 PCMESG  := $(subst .tex,.pdf,$(wildcard message-from-committee.tex))
-REVIEWS := $(subst .tex,.pdf,$(wildcard reviews/SIGBOVIK_2022_*))
+REVIEWS := $(subst .tex,.pdf,$(wildcard reviews/SIGBOVIK_2023_*))
 
 proceedings.pdf: main-matter.pdf
 	$(GS) -sOutputFile=$@ -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH $<
