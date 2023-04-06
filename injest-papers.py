@@ -77,8 +77,6 @@ with open(papersFile, newline='') as csvfile:
 			print(f"   current url: '{url}'")
 			print(f"   original url: '{row[PDF]}'")
 			print(f"   contact: {row[EMAIL]}")
-			#ad-hoc whitelist -->
-			if id == 16: continue
 			exit(1)
 
 		if len(authors) <= 2:
