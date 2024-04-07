@@ -17,18 +17,24 @@ if len(sys.argv) != 3:
 
 print(f"Will read from {papersFile} and download to {prefix}_paper_N.pdf")
 
-TRACK = 'Which track are you submitting to?'
-TITLE = 'Paper Title'
-AUTHORS = 'Paper Author Names'
-PDF = 'Paper PDF Link'
-EMAIL = 'Email Address'
+TRACK = 'TRACK'
+TITLE = 'TITLE'
+AUTHORS = 'AUTHOR'
+PDF = 'URL'
+EMAIL = 'EMAIL'
+# TRACK = 'Which track are you submitting to?'
+# TITLE = 'Paper Title'
+# AUTHORS = 'Paper Author Names'
+# PDF = 'Paper PDF Link'
+# EMAIL = 'Email Address'
 
 papers_tex = []
 
 id = 0
-with open(papersFile, newline='') as csvfile:
+with open(papersFile, newline='', errors="ignore", encoding="utf-8-sig") as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
+		# print(row)
 		id += 1;
 		track = row[TRACK]
 		title = row[TITLE]
